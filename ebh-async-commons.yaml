@@ -1,0 +1,143 @@
+components:
+  schemas:
+    ServiceFault:
+      type: object
+      required:
+        - errorCode
+        - errorMessage
+      properties:
+        errorCode:
+          type: string
+        errorMessage:
+          type: string
+        furtherInfo:
+          type: string
+        faultObject:
+          type: object
+    AsyncMessageMeta:
+      type: object
+      title: Standard JMS / AMQP message header és property mezők
+      description: |
+        Egységes JMS–AMQP mezők a banki aszinkron üzenetkezeléshez (ActiveMQ Artemis, AMQP 1.0).
+        A JMS governance szerinti kötelező és opcionális mezők leírása.
+      properties:
+
+        JMSType:
+          type: string
+          description: |
+            **JMS msg field name:** `JMSType`  
+            **Description:** Identifier of the message content. Centrally administered, ensures unique type catalog.  
+            **Mandatory:** Yes  
+            **In JMS:** Header  
+            **In AMQP:**  
+              - `message-annotation.x-opt-jms-type` *(for broker-level filtering)*  
+              - or `application-property` `"JMSType"`
+
+        JMSCorrelationID:
+          type: string
+          description: |
+            **JMS msg field name:** `JMSCorrelationID`  
+            **Description:** Used for request/response correlation. Response copies the request’s JMSMessageID into this field.  
+            **Mandatory:** Yes  
+            **In JMS:** Header  
+            **In AMQP:** `properties.correlation-id`
+
+        JMSReplyTo:
+          type: string
+          description: |
+            **JMS msg field name:** `JMSReplyTo`  
+            **Description:** Target queue/topic for reply messages (request/response pattern).  
+            **Mandatory:** No  
+            **In JMS:** Header  
+            **In AMQP:** `properties.reply-to`
+
+        JMSPriority:
+          type: integer
+          description: |
+            **JMS msg field name:** `JMSPriority`  
+            **Description:** Priority level (0–9). 0–4=normal, 5–9=high.  
+            **Mandatory:** No  
+            **In JMS:** Header  
+            **In AMQP:** `header.priority`
+
+        JMSExpiration:
+          type: integer
+          description: |
+            **JMS msg field name:** `JMSExpiration`  
+            **Description:** Time-to-live (ms since Unix epoch).  
+            **Mandatory:** No  
+            **In JMS:** Header  
+            **In AMQP:** `header.ttl`
+
+        JMSTimestamp:
+          type: string
+          format: date-time
+          description: |
+            **JMS msg field name:** `JMSTimestamp`  
+            **Description:** Time of sending from producer.  
+            **Mandatory:** Yes  
+            **In JMS:** Header  
+            **In AMQP:** `header.timestamp`
+
+        source:
+          type: string
+          description: |
+            **JMS msg field name:** `source`  
+            **Description:** Name of the sending system (application name in VEKER).  
+            **Mandatory:** Yes  
+            **In JMS:** Property  
+            **In AMQP:** `application-property` `"source"`
+
+        sourcemodule:
+          type: string
+          description: |
+            **JMS msg field name:** `sourcemodule`  
+            **Description:** Name of the module (e.g. `TransactionService|OpenAPI`).  
+            **Mandatory:** Yes  
+            **In JMS:** Property  
+            **In AMQP:** `application-property` `"sourcemodule"`
+
+        id:
+          type: string
+          description: |
+            **JMS msg field name:** `id`  
+            **Description:** Unique message identifier (prefixed by system name). Response uses same id.  
+            **Mandatory:** Yes  
+            **In JMS:** Property  
+            **In AMQP:** `properties.message-id`
+
+        rrid:
+          type: string
+          description: |
+            **JMS msg field name:** `rrid`  
+            **Description:** Common ID of asynchronous request–response pair.  
+            **Mandatory:** No  
+            **In JMS:** Property  
+            **In AMQP:** `application-property` `"rrid"`
+
+        correlid:
+          type: string
+          description: |
+            **JMS msg field name:** `correlid`  
+            **Description:** Flow/session ID, propagated across all calls in a transaction flow.  
+            **Mandatory:** No  
+            **In JMS:** Property  
+            **In AMQP:** `properties.correlation-id`
+
+        userid:
+          type: string
+          description: |
+            **JMS msg field name:** `userid`  
+            **Description:** Original user’s login or technical user name.  
+            **Mandatory:** Yes  
+            **In JMS:** Property  
+            **In AMQP:** `properties.user-id` (binary transport-level identity)
+
+        messageversion:
+          type: string
+          description: |
+            **JMS msg field name:** `messageversion`  
+            **Description:** Version of the message structure.  
+            **Mandatory:** No  
+            **In JMS:** Property  
+            **In AMQP:** `application-property` `"messageversion"`

@@ -1,0 +1,2415 @@
+openapi: 3.0.3
+info:
+  title: SLLOAN PostCreateLoan V2 Models
+  version: 2.0.0
+paths: {}
+components:
+  schemas:
+    PostCreateLoanRequest:
+      type: object
+      properties:
+        createLoan:
+          $ref: '#/components/schemas/CreateLoan'
+      additionalProperties: false
+
+    LoanInfo:
+      type: object
+      description: Hitel.
+      properties:
+        acctExec:
+          type: string
+          maxLength: 3
+          description: |-
+            The account executive/officer assigned to this customer in this specific module
+            CL_LOAN.ACCT_EXEC
+        agentClerk:
+          type: string
+          maxLength: 10
+          description: |-
+            The user defined Agent clerk code.
+            CL_LOAN.AGENT_CLERK
+        agentClerkName:
+          type: string
+          maxLength: 25
+          description: |-
+            The user defined Agent clerk name
+            CL_LOAN.AGENT_CLERK_NAME
+        agentCode2:
+          type: string
+          maxLength: 16
+          description: |-
+            Agent code 2
+            CL_LOAN.AGENT_CODE_2
+        agentCode:
+          type: string
+          maxLength: 16
+          description: |-
+            Agent code
+            CL_LOAN.AGENT_CODE
+        analysis1:
+          type: string
+          maxLength: 6
+          description: |-
+            These codes are used to classify the loans into various different categories.
+            These are user defined selection codes which may be used for the bank''s internal breakdown and analysis of loans.
+
+            CL_LOAN.ANALYSIS_1
+        analysis2:
+          type: string
+          maxLength: 6
+          description: |-
+            These codes are used to classify the loans into various different categories.
+            These are user defined selection codes which may be used for the bank''s internal breakdown and analysis of loans.
+
+            CL_LOAN.ANALYSIS_2
+        analysis3:
+          type: string
+          maxLength: 6
+          description: |-
+            These codes are used to classify the loans into various different categories.
+            These are user defined selection codes which may be used for the bank''s internal breakdown and analysis of loans.
+
+            CL_LOAN.ANALYSIS_3
+        autoRecGen:
+          type: string
+          maxLength: 1
+          description: |-
+            This determines if the internal Invoice or internal receipt will be generated automatically on the due date.
+            It allows this type of loan to automatically settle any principal or interest due.
+
+            CL_LOAN.AUTO_REC_GEN
+        benchmark:
+          type: string
+          maxLength: 1
+          description: |-
+            Benchmark
+            CL_LOAN.BENCHMARK
+        billingDays:
+          type: number
+          description: |-
+            The number of working days in advance of due date that the invoice billing statement will be generated except in case when Auto Receipt = Y.
+            This will be defaulted, but amendable, at the loan facility level.
+
+            CL_LOAN.BILLING_DAYS
+        businessModel:
+          type: string
+          maxLength: 3
+          description: |-
+            Business model
+            CL_LOAN.BUSINESS_MODEL
+        car:
+          type: string
+          maxLength: 6
+          description: |-
+            The Capital Adequacy Ratio assigned to this particular facility.
+            CL_LOAN.CAR
+        chkCustAc:
+          type: string
+          maxLength: 1
+          description: |-
+            This indicator is used to show whether it is an Other Customer Account or not.
+            CL_LOAN.CHK_CUST_AC
+        clientPortion:
+          type: number
+          description: |-
+            This is the share of the Lender. It calculated based on percentage or ratio or it can be manually entered if no percentage or ratio is specified.
+            CL_LOAN.CLIENT_PORTION
+        compoundFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            The frequency at which the interest is calculated and compounded for the purpose of future interest calculations.
+            CL_LOAN.COMPOUND_FREQ
+        creditNo:
+          type: string
+          maxLength: 20
+          description: |-
+            This is a free format field. It may be used to as a further reference for this facility and is available in certain report functions
+            CL_LOAN.CREDIT_NO
+        directDebit:
+          type: string
+          maxLength: 1
+          description: |-
+            Direct debit
+            CL_LOAN.DIRECT_DEBIT
+        endDate:
+          type: string
+          format: date
+          description: |-
+            This is the date before which all the drawdowns should be made on the facility being created.
+            CL_LOAN.END_DATE
+        execChangeDate:
+          type: string
+          format: date
+          description: |-
+            Exec change date
+            CL_LOAN.EXEC_CHANGE_DATE
+        execStatus:
+          type: string
+          maxLength: 2
+          description: |-
+            This is the date before which all the drawdowns should be made on the facility being created.
+            CL_LOAN.EXEC_STATUS
+        exRateType:
+          type: string
+          maxLength: 3
+          description: |-
+            Exchange rates used by the banks for the different types of transactions like Cheque transactions, Foreign Transfers and Reversal.
+            CL_LOAN.EX_RATE_TYPE
+        firstBsYrStart:
+          type: string
+          format: date
+          description: |-
+            This is the First Business Year Start Date.
+            CL_LOAN.FIRST_BS_YR_START
+        flatMax:
+          type: number
+          description: |-
+            The maximum rate applied on flat loans.
+            This should be greater than the Flat Min
+            CL_LOAN.FLAT_MAX
+        flatMin:
+          type: number
+          description: |-
+            The minimum rate applied on flat loans.  This should be less than the Flat Max
+            CL_LOAN.FLAT_MIN
+        gracePeriod:
+          type: number
+          description: |-
+            The banks generally allow a reasonable grace period beyond the due date, before starting to levy penalty interest on the Past due Principal / Interest / Overdue Interest.
+            Number of days after due date. No penalty interest is computed within these days.
+
+            CL_LOAN.GRACE_PERIOD
+        intApplType:
+          type: string
+          maxLength: 1
+          description: |-
+            This provides an option to user when to change the interest rate.
+            Valid values are:
+            A - Change the effective interest rate of the drawdown whenever an interest basis rate change is encountered on the rollover date.
+            S - Change the effective interest rate of the drawdown on the first interest repayment date after the rollover date
+
+            CL_LOAN.INT_APPL_TYPE
+        intBasis:
+          type: string
+          maxLength: 4
+          description: |-
+            The basis for the maximum variable rate. This automatically displays the maximum interest basis rate as defined in the previous screens.
+            Should not be the same with minimum interest basis.
+
+            CL_LOAN.INT_BASIS
+        intCap:
+          type: string
+          maxLength: 1
+          description: |-
+            Indicates if interest will be capitalise on due date or to be billed. Valid values are Y for capitalise and N to billed
+            CL_LOAN.INT_CAP
+        intFeePltyRate:
+          type: string
+          maxLength: 4
+          description: |-
+            This is the type of interest that will be charged as a penalty for the past due of Fee and Interest.
+            CL_LOAN.INT_FEE_PLTY_RATE
+        intPltyAbs:
+          type: number
+          description: |-
+            This captures the absolute rate that will be charged as penalty on the interest if the client defaults on the interest payment.
+            CL_LOAN.INT_PLTY_ABS
+        intPltySpreadRate:
+          type: number
+          description: |-
+            This is the spread rate that will be used to calculate the interest on the penalty on the interest.
+            This is added to the interest penalty basis rate and compared to the absolute rate and the higher of both the rates is considered.
+
+            CL_LOAN.INT_PLTY_SPREAD_RATE
+        intRepayFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            This is the frequency at which the interest is to be received or collected.
+            CL_LOAN.INT_REPAY_FREQ
+        irredeemSubsidyAmt:
+          type: number
+          description: |-
+            Irredeemable subsidized amount. This is allowed only for Subsidized loans.
+            CL_LOAN.IRREDEEM_SUBSIDY_AMT
+        loanAgent:
+          type: string
+          maxLength: 6
+          description: |-
+            The user defined loan agent code as defined in set up Client Information.
+            CL_LOAN.LOAN_AGENT
+        loanMsgGrp:
+          type: string
+          maxLength: 3
+          description: |-
+            The message group from which this facility will obtain messaging formats.
+            This is where the generated advises  will determine the source of the messages. The message code will be verified in the loan.
+
+            CL_LOAN.LOAN_MSG_GRP
+        matureDate:
+          type: string
+          format: date
+          description: |-
+            The date on which the loan facility will expire and there will be no drawdown allowed on the facility after this date.
+            CL_LOAN.MATURE_DATE
+        maxDdAmt:
+          type: number
+          description: |-
+            Maximum transfer amount for the Drawdown.
+            CL_LOAN.MAX_DD_AMT
+        maxIntBasis:
+          type: string
+          maxLength: 4
+          description: |-
+            The basis for the maximum variable rate.
+            This automatically displays the Max Interest Basis Rate as defined in the previous screens. Should not be the same with Min Interest Basis.
+
+            CL_LOAN.MAX_INT_BASIS
+        maxSpreadRate:
+          type: number
+          description: |-
+            The maximum spread interest rates permissible on drawdown.  This should be greater than the Min Spread Rate.
+            CL_LOAN.MAX_SPREAD_RATE
+        minIntBasis:
+          type: string
+          maxLength: 4
+          description: |-
+            The basis for the maximum variable rate.
+            This automatically displays the maximum interest basis rate as defined in the previous screens. Should not be the same with minimum interest basis.
+
+            CL_LOAN.MIN_INT_RATE
+        minMaxRollFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            Captures how frequent  the Min and Max would rollover.
+            CL_LOAN.MIN_MAX_ROLL_FREQ
+        minSpreadRate:
+          type: number
+          description: |-
+            The minimum spread interest rates permissible on drawdown plus minimum spread rate.
+            CL_LOAN.MIN_SPREAD_RATE
+        mplRefNo:
+          type: string
+          maxLength: 15
+          description: |-
+            MPL reference number
+            CL_LOAN.MPL_SEQ_NO
+        narrative:
+          type: string
+          maxLength: 240
+          description: |-
+            Remarks or any special instructions can be captured
+            CL_LOAN.NARRATIVE
+        nextStmtDate:
+          type: string
+          format: date
+          description: |-
+            The next date of loan statement printing. As of now it is for information, no processing involved.
+            CL_LOAN.NEXT_STMT_DATE
+        odId:
+          type: string
+          maxLength: 20
+          description: |-
+            The Identification of the Overdraft.
+            CL_LOAN.OD_ID
+        odIdType:
+          type: string
+          maxLength: 2
+          description: |-
+            The type of the Overdraft facility. The description of the ID type will be displayed on the right.
+            CL_LOAN.OD_ID_TYPE
+        origLoanAmt:
+          type: number
+          description: |-
+            This is the initial amount of the facility. It may be increased or decreased any time and is validated against any outstanding balances.
+            CL_LOAN.ORIG_LOAN_AMT
+        overline:
+          type: number
+          description: |-
+            This represents a percentage of the Original Loan Facility Limit.
+            Drawdown can be made in excess of the Original Loan Facility Limit up to an amount equal to the overlie percentage without further approval.
+
+            CL_LOAN.OVERLINE
+        penalty:
+          type: string
+          maxLength: 1
+          description: |-
+            This will determine to charge penalty interest on principal and interest past due balances.
+            CL_LOAN.PENALTY
+        postalClerk:
+          type: string
+          maxLength: 4
+          description: |-
+            The user defined Postal clerk code.
+            CL_LOAN.POSTAL_CLERK
+        postalClerkName:
+          type: string
+          maxLength: 24
+          description: |-
+            The user defined Postal clerk name.
+            CL_LOAN.POSTAL_CLERK_NAME
+        postOffice:
+          type: string
+          maxLength: 4
+          description: |-
+            It is code used for the post office.
+            CL_LOAN.POST_OFFICE
+        preLoanNo:
+          type: string
+          maxLength: 10
+          description: CL_LOAN.PRE_LOAN_NO
+        prePayRate:
+          type: number
+          description: |-
+            This is the prepayment penalty rate that will be applied to any principal pre-paid before the maturity through the receipts using a PP receipt type.
+            This is used only if the bank opts to collect penalty interest for prepaying  by the client.
+
+            CL_LOAN.PRE_PAY_RATE
+        priRepayFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            If the repayment is on a regular frequency for part of the drawdown period, the frequency is specified here.
+            If the frequency is left blank it is considered to be a one-time repayment.
+
+            CL_LOAN.PRI_REPAY_FREQ
+        prPltyAbs:
+          type: number
+          description: |-
+            This is the absolute Penalty rate.  It is a flat rate chargeable on past due balances.
+            To charge a higher interest rate on past due balances enter either spread or absolute.
+            If both penalty spread rate and absolute rate are entered then the system will assess a penalty rate based on the higher rate.
+
+            CL_LOAN.PR_PLTY_ABS
+        prPltyBasis:
+          type: string
+          maxLength: 4
+          description: |-
+            This is the basis on implementing penalties on principal.
+            CL_LOAN.PR_PLTY_BASIS
+        prPltySpreadRate:
+          type: number
+          description: |-
+            This is penalty spread rate.  It is the margin over the effective interest rate to arrive at the Penalty Rate
+            CL_LOAN.PR_PLTY_SPREAD_RATE
+        purpose:
+          type: string
+          maxLength: 6
+          description: |-
+            A unique code that will represent a specific purpose acceptable by the bank.
+            CL_LOAN.PURPOSE
+        redeemSubsidyAmt:
+          type: number
+          description: |-
+            This is the subsidy amount to be redeemed. This value should be less than 99 Quintillion i.e. between 0 and 1000000000
+            CL_LOAN.REDEEM_SUBSIDY_AMT
+        regNarrative:
+          type: string
+          maxLength: 240
+          description: |-
+            Remarks or instructions can be placed here.
+            CL_LOAN.REG_NARRATIVE
+        reviewDate:
+          type: string
+          format: date
+          description: |-
+            The next date on which the facility should be reviewed.
+            On facilities which require no review, the user may assign any date between the Agreement Date and the Facility Expiry
+
+            CL_LOAN.REVIEW_DATE
+        rollFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            The frequency at which the module will search for a possible rate change in Kernel''s Interest Basis or through manual rollover amendments
+            CL_LOAN.ROLL_FREQ
+        rotationCode:
+          type: string
+          maxLength: 8
+          description: |-
+            Rotation code
+            CL_LOAN.ROTATION_CODE
+        signedDate:
+          type: string
+          format: date
+          description: |-
+            The date on which the borrower accepts the loan agreement.
+            CL_LOAN.SIGNED_DATE
+        sppi1:
+          type: string
+          maxLength: 3
+        sppi2:
+          type: string
+          maxLength: 3
+        spreadBasis1:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 1
+            CL_LOAN.SPREAD_BASIS_1
+        spreadBasis2:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 2
+            CL_LOAN.SPREAD_BASIS_2
+        spreadBasis3:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 3
+            CL_LOAN.SPREAD_BASIS_3
+        spreadBasis4:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 4
+            CL_LOAN.SPREAD_BASIS_4
+        spreadBasis5:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 5
+            CL_LOAN.SPREAD_BASIS_5
+        spreadBasis6:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 6
+            CL_LOAN.SPREAD_BASIS_6
+        spreadBasisRate1:
+          type: number
+          description: |-
+            Spread basis rate 1
+            CL_LOAN.SPREAD_BASIS_RATE_1
+        spreadBasisRate2:
+          type: number
+          description: |-
+            Spread basis rate 2
+            CL_LOAN.SPREAD_BASIS_RATE_2
+        spreadBasisRate3:
+          type: number
+          description: |-
+            Spread basis rate 3
+            CL_LOAN.SPREAD_BASIS_RATE_3
+        spreadBasisRate4:
+          type: number
+          description: |-
+            Spread basis rate 4
+            CL_LOAN.SPREAD_BASIS_RATE_4
+        spreadBasisRate5:
+          type: number
+          description: |-
+            Spread basis rate 5
+            CL_LOAN.SPREAD_BASIS_RATE_5
+        spreadBasisRate6:
+          type: number
+          description: |-
+            Spread basis rate 6
+            CL_LOAN.SPREAD_BASIS_RATE_6
+        spreadRate7:
+          type: number
+          description: |-
+            Spread rate 7
+            CL_LOAN.SPREAD_RATE_7
+        spreadRate:
+          type: number
+          description: |-
+            Margin over interest basis rate. The effective interest will be sum of Interest basis rate and the spread rate.
+            The Spread rate can be negative to the extent that Effective interest is not negative.
+
+            CL_LOAN.SPREAD_RATE
+        stmtDay:
+          type: number
+          description: |-
+            The optimal day on which statements are generated by the system.
+            CL_LOAN.STMT_DAY
+        stmtFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            The frequency at which a regular statement is generated by the system
+            CL_LOAN.STMT_FREQ
+        subsidyIntCode:
+          type: string
+          maxLength: 3
+          description: |-
+            This is the interest basis rate that will be applied on the subsidised loan.
+            CL_LOAN.SUBSIDY_INT_CODE
+        subsidyIntDate:
+          type: string
+          format: date
+          description: |-
+            The Next Subsidy Interest Date. Not allow to input value when subsidy pmt mtd is equal to ''N''
+            CL_LOAN.SUBSIDY_INT_DATE
+        subsidyIntDay:
+          type: number
+          description: |-
+            The Optimal Day of Subsidy Interest. Not allow to input value when subsidy pmt mtd is equal to ''N''
+            CL_LOAN.SUBSIDY_INT_DAY
+        subsidyIntFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            The Subsidy Interest Frequency. Not allow to input value when subsidy pmt mtd is equal to ''N''.
+            CL_LOAN.SUBSIDY_INT_FREQ
+        subsidyPmtMtd:
+          type: string
+          maxLength: 1
+          description: |-
+            The method on how to implement subsidy payment.
+            Valid values are :
+            N - No Subsidy
+            P - Paid by the Client
+            R - Rebated to the Client
+            S - Split between the Client and the State
+
+            CL_LOAN.SUBSIDY_PMT_MTD
+        subsidyPmtMtdOrig:
+          type: string
+          maxLength: 1
+          description: |-
+            The original subsidy payment. This is allow to input value when subsidy payment method is equal to ''E'' only.
+            Valid values are :
+            P  - Paid by the Client
+            R  - Rebated to the Client
+            S  - Split to the Client
+
+            CL_LOAN.SUBSIDY_PMT_MTD_ORIG
+        subsidyRateCode:
+          type: string
+          maxLength: 3
+          description: |-
+            Captures the subsidy rate code to be used for the specific loan type/ subtype combination.
+            CL_LOAN.SUBSIDY_RATE_CODE
+        subsidyRollFreq:
+          type: string
+          maxLength: 1
+          description: |-
+            Captures the schedule change of subsidy rate based on the subsidy rate table.
+            Valid values are :
+            A  - Annually
+            Y  - Yearly
+
+            CL_LOAN.SUBSIDY_ROLL_FREQ
+        subsidySpreadRate:
+          type: number
+          description: |-
+            Margin over interest basis rate. The effective interest will be basis rate plus spread rate
+            CL_LOAN.SUBSIDY_SPREAD_RATE
+        uiMinAmt:
+          type: number
+          description: |-
+            Minimum Unearned Interest penalty to be assessed against the Unearned Interest amount held by the bank
+            CL_LOAN.UI_MIN_AMT
+        uiPrepayment:
+          type: number
+          description: |-
+            This is unearned interest penalty rate. This is applicable only for discounted loans.  This is used if the bank opts to collect penalty fee on the unearned interest that will be returned to the client in the event of a prepayment on a discounted loan.
+            The penalty will be assessed against the Unearned Interest amount held by the bank
+
+            CL_LOAN.UI_PREPAYMENT
+        date1:
+          type: string
+          format: date
+          description: |-
+            Date 1
+            CL_LOAN.DATE_1
+        date2:
+          type: string
+          format: date
+          description: |-
+            Date 2
+            CL_LOAN.DATE_2
+        date3:
+          type: string
+          format: date
+          description: |-
+            Date 3
+            CL_LOAN.DATE_3
+        date4:
+          type: string
+          format: date
+          description: |-
+            Date 4
+            CL_LOAN.DATE_4
+        code1:
+          type: string
+          maxLength: 6
+          description: |-
+            Code 1
+            CL_LOAN.CODE_1
+        code2:
+          type: string
+          maxLength: 6
+          description: |-
+            Code 2
+            CL_LOAN.CODE_2
+        code3:
+          type: string
+          maxLength: 6
+          description: |-
+            Code 3
+            CL_LOAN.CODE_3
+        code4:
+          type: string
+          maxLength: 6
+          description: |-
+            Code 4
+            CL_LOAN.CODE_4
+        desc1:
+          type: string
+          maxLength: 30
+          description: |-
+            Description 1
+            CL_LOAN.DESC_1
+        desc2:
+          type: string
+          maxLength: 30
+          description: |-
+            Description 2
+            CL_LOAN.DESC_2
+        desc3:
+          type: string
+          maxLength: 30
+          description: |-
+            Description 3
+            CL_LOAN.DESC_3
+        desc4:
+          type: string
+          maxLength: 30
+          description: |-
+            Description 4
+            CL_LOAN.DESC_4
+        information1:
+          type: string
+          maxLength: 50
+          description: |-
+            Information 1
+            CL_LOAN.INFORMATION_1
+        information2:
+          type: string
+          maxLength: 50
+          description: |-
+            Information 2
+            CL_LOAN.INFORMATION_2
+        information3:
+          type: string
+          maxLength: 50
+          description: |-
+            Information 3
+            CL_LOAN.INFORMATION_3
+        information4:
+          type: string
+          maxLength: 50
+          description: |-
+            Information 4
+            CL_LOAN.INFORMATION_4
+        ccy1:
+          type: string
+          maxLength: 3
+          description: |-
+            Currency 1
+            CL_LOAN.CCY_1
+        ccy2:
+          type: string
+          maxLength: 3
+          description: |-
+            Currency 2
+            CL_LOAN.CCY_2
+        ccy3:
+          type: string
+          maxLength: 3
+          description: |-
+            Currency 3
+            CL_LOAN.CCY_3
+        ccy4:
+          type: string
+          maxLength: 3
+          description: |-
+            Currency 4
+            CL_LOAN.CCY_4
+        amount1:
+          type: number
+          description: |-
+            Amount 1
+            CL_LOAN.AMOUNT_1
+        amount2:
+          type: number
+          description: |-
+            Amount 2
+            CL_LOAN.AMOUNT_2
+        amount3:
+          type: number
+          description: |-
+            Amount 3
+            CL_LOAN.AMOUNT_3
+        amount4:
+          type: number
+          description: |-
+            Amount 4
+            CL_LOAN.AMOUNT_4
+        loanTypeDesc:
+          type: string
+          maxLength: 20
+          description: |-
+            Description of the product type
+            CL_LOAN_TYPE.LOAN_TYPE_DESC given the loan_type
+      required:
+        - acctExec
+        - autoRecGen
+        - matureDate
+        - maxDdAmt
+        - origLoanAmt
+        - purpose
+        - reviewDate
+        - rotationCode
+        - signedDate
+    LoanCreateInfo:
+      type: object
+      description: Hitel rögzítés.
+      properties:
+        loanInfo:
+          $ref: "#/components/schemas/LoanInfo"
+          description: "Létrehozáskor kötelező, lekérdezéskor nem kötelező"
+        bookBranch:
+          type: string
+          maxLength: 3
+          description: |-
+            Loan branch
+            CL_LOAN.BOOK_BRANCH given the loan_no
+        borrower:
+          type: string
+          maxLength: 6
+          description: |-
+            A valid CL client
+            Validations:
+            -    Should be validated against cl_client_v.
+        ccy:
+          type: string
+          maxLength: 3
+          description: "Loan currency\nValidations:\n-\tShould be existing in fm_currency."
+        dateApplied:
+          type: string
+          format: date-time
+          description: |-
+            Loan application date
+            Validations:
+            -   Should NOT be greater than the current run date.
+        hoRepCode:
+          type: number
+          description: "Type of reporting.\nValidations:\n•\tShould be existing in\
+            \ fm_reporting_code"
+        invoiceYn:
+          type: string
+          maxLength: 1
+          description: |-
+            Invoice generation indicator
+            Validations:
+            -    Valid values are Y or N only.
+        loanManager:
+          type: string
+          maxLength: 6
+          description: |-
+            A bank that acts as the manager of the loan.
+            CL_LOAN.LOAN_MANAGER
+        loanSubType:
+          type: string
+          maxLength: 3
+          description: |-
+            Product sub type
+            CL_LOAN.LOAN_SUB_TYPE
+        loanType:
+          type: string
+          maxLength: 3
+          description: |-
+            Product type
+            CL_LOAN.LOAN_TYPE
+        priRepayType:
+          type: string
+          maxLength: 1
+          description: |-
+            Principal repayment type
+            CL_LOAN.PRI_REPAY_TYPE
+        profitCentre:
+          type: string
+          maxLength: 12
+          description: "Branch or unit under which the loan will be reported and accounted.\n\
+            Validations:\n•\tShould be existing in fm_profit_centre"
+        startDate:
+          type: string
+          format: date
+          description: "Date wherein the loan is available for disbursement\nValidations:\n\
+            •\tShould NOT be less than the date applied\n•\tShould NOT be a holiday\n\
+            \nCL_LOAN.START_DATE"
+        status:
+          type: string
+          maxLength: 3
+          description: |-
+            Loan status
+            CL_LOAN.STATUS
+        synManager:
+          type: string
+          maxLength: 6
+          description: |-
+            Syndication manager
+            CL_LOAN.SYN_MANAGER
+      required:
+        - bookBranch
+        - borrower
+        - ccy
+        - dateApplied
+        - loanManager
+        - loanSubType
+        - loanType
+        - profitCentre
+        - startDate
+        - status
+    CustomerAccountInfo:
+      type: object
+      description: Másodlagos törlesztési számla.
+      properties:
+        acctNo:
+          type: string
+          maxLength: 20
+          description: |-
+            The Deposit account number of the client.  This is the account number opened in Deposits for a particular client. This is system-generated  alpha-numeric codes based on a sequence no and the check digit computed from the Account No weights.
+            CL_CUSTOMER_ACCTS.ACCT_NO
+        feeNo:
+          type: integer
+          description: |-
+            Fee sequence number
+            CL_CUSTOMER_ACCTS.FEE_NO
+        position:
+          type: integer
+          description: Position
+        priorityNo:
+          type: number
+          description: |-
+            This tracks the priority number of the R B account  to be used as a setlement account for the Loan payment. The maximum priority number for the loan should be equal to the count of the row numbers for the loan key
+            CL_CUSTOMER_ACCTS.PRIORITY_NO
+        rateType:
+          type: string
+          maxLength: 3
+          description: |-
+            The unique key that identifies Rate Type.
+            CL_CUSTOMER_ACCTS.RATE_TYPE
+    LoanRemarkInfo:
+      type: object
+      description: LoanRemark.
+      properties:
+        eventDate:
+          type: string
+          format: date-time
+          description: "Date the remarks was attached to the loan\nValidations:\n\
+            -\tShould NOT be less than the loan start date.\n-\tShould NOT be greater\
+            \ than the loan mature date."
+        position:
+          type: integer
+          description: Position
+        remarks:
+          type: string
+          maxLength: 50
+          description: Free text comments
+      required:
+        - eventDate
+        - position
+        - remarks
+    LoanDocInfo:
+      type: object
+      description: LoanDoc
+      properties:
+        criticality:
+          type: string
+          maxLength: 1
+          description: |-
+            Criticality of the document
+            CL_LOAN_DOCS.CRITICALITY
+        docCode:
+          type: string
+          maxLength: 8
+          description: |-
+            Document code
+            CL_LOAN_DOCS.DOC_CODE
+        position:
+          type: integer
+          description: Position
+        revisedDate:
+          type: string
+          format: date
+          description: |-
+            Date the document is completed or updated.
+            CL_LOAN_DOCS.REVISED_DATE
+        seqNo:
+          type: integer
+          description: |-
+            Sequence number of the document
+            CL_LOAN_DOCS.SEQ_NO
+      required:
+        - criticality
+        - docCode
+    LenderInfo:
+      type: object
+      description: Lender.
+      properties:
+        lender:
+          type: string
+          maxLength: 6
+          description: |-
+            Lender
+            CL_LENDER.LENDER
+        lenderPortion:
+          type: number
+          description: |-
+            Lender portion
+            CL_LENDER.LENDER_PORTION
+        position:
+          type: integer
+    FeeInfo:
+      type: object
+      description: Díj.
+      properties:
+        baseDays:
+          type: number
+          description: |-
+            Base days
+            Validations:
+            -  Valid values are 360, 365, 366
+            CL_FEES.BASE_DAYS
+        ccy:
+          type: string
+          maxLength: 3
+          description: |-
+            Fee currency
+            Validations:
+            -  Should be existing in fm_currency.
+            CL_FEES.CCY
+        dueDate:
+          type: string
+          format: date
+          description: |-
+            Fee due date
+            Validations:
+            -  Should be equal to or greater than run date
+            -  Should not be greater than loan mature date.
+            -  Should not be a holiday.
+            -  Should be null if event_due_dt is not null.
+            CL_FEES.DUE_DATE
+        endDate:
+          type: string
+          format: date
+          description: |-
+            End date of fee
+            Validations:
+            -  Should be greater than or equal to run date.
+            -  Should be greater  than fee due date
+            -  Should not be greater than loan mature date
+            -  Should NOT be a holiday
+            -  Should be NULL if event due dt is NOT null
+            CL_FEES.END_DATE
+        eventDueDt:
+          type: string
+          maxLength: 4
+          description: |-
+            Fee event due date
+            Validations:
+            -  Should be existing in fm_ref_code where domain is 'CL_FEES.EVENT_DUE_DT'.
+            -  Should be null if due date is not null
+            CL_FEES.EVENT_DUE_DT
+        eventEndDt:
+          type: string
+          maxLength: 4
+          description: |-
+            Fee event end date
+            Validations:
+            -  Should be existing in fm_ref_code where domain is 'CL_FEES.EVENT_END_DT'.
+            -  Should be null if due_date is not null
+            -  Required if fee_freq is NOT null
+            CL_FEES.EVENT_END_DT
+        eventFeeDay:
+          type: number
+          description: |-
+            Optimal day for fee event due date
+            Validations:
+            -  Valid values 1 – 31
+            -  Should be null if due date is not null.
+        feeAmt:
+          type: number
+          description: |-
+            Fee amount
+            Validations:
+            -  Required if the fee type is flat
+            CL_FEES.FEE_AMT
+        feeBalanceAmt:
+          type: number
+          description: Fee balance amount
+        feeCalcMtd:
+          type: string
+          maxLength: 2
+          description: CL_FEES.FEE_CALC_MTD
+        feeDay:
+          type: number
+          description: |-
+            Optimal day for fee due date
+            Validations:
+            -  Valid values 1 – 31.
+            CL_FEES.FEE_DAY
+        feeFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            Fee period frequency
+            CL_FEES.FEE_FREQ
+        feeRate:
+          type: number
+          description: |-
+            Fee rate
+            CL_FEES.FEE_RATE
+        gteeNo:
+          type: number
+          description: CL_FEES.GTEE_NO
+        maxAmt:
+          type: number
+          description: |-
+            Maximum fee amount.
+            Validations:
+            -  Should be greater than the min amt
+            CL_FEES.MAX_AMT
+        minAmt:
+          type: number
+          description: |-
+            Minimum fee amount.
+            No Validations
+            CL_FEES.MIN_AMT
+        minAppMtd:
+          type: string
+          maxLength: 2
+          description: CL_FEES.MIN_APP_MTD
+        narrative:
+          type: string
+          maxLength: 240
+          description: |-
+            Fee narrative
+            No validations
+            CL_FEES.NARRATIVE
+        nextDueDate:
+          type: string
+          format: date
+          description: |-
+            Next due date
+            CL_FEES.NEXT_DUE_DATE
+        startDate:
+          type: string
+          format: date
+          description: |-
+            Start date of the fee
+            Validations:
+            -  Should NOT be a holiday.
+            -  Can only be modified if greater than run date
+            CL_FEES.START_DATE
+        gteeContractNo:
+          type: string
+          maxLength: 50
+          description: |-
+            Guaranteed contract no
+            CL_FEES.GTEE_CONTRACT_NO
+      required:
+        - ccy
+    FeeCreateInfo:
+      type: object
+      description: Díj rögzítés.
+      properties:
+        feeInfo:
+          $ref: "#/components/schemas/FeeInfo"
+          description: "Létrehozáskor kötelező, lekérdezéskor nem kötelező"
+        feeType:
+          type: string
+          maxLength: 3
+          description: |-
+            Fee type
+            Validations:
+            -  Should be existing in cl_fee_type.
+      required:
+        - feeType
+    DrawdownInfo:
+      type: object
+      description: Lehívás.
+      properties:
+        altIndexNextRollDate:
+          type: string
+          format: date-time
+          description: Alteration index rollover date.
+        altIndexNextRollDay:
+          type: number
+          description: Alteration index rollover day.
+        altIndexRollFreq:
+          type: string
+          maxLength: 2
+          description: Alteration index period frequency.
+        altMaxSeqNo:
+          type: number
+          description: Alteration maximal sequence number.
+        annuityStartDate:
+          type: string
+          format: date
+          description: |-
+            The start date of the annuity part of the drawdown. Date is mandatory and updateable only when ''Partly N and E'' specified for loan sub type is equal to ''Y'' .
+            This date is used for the interest invoice calculation when the annuity start date is less than the rundate and the process type is E.
+            <p>
+            CL_DRAWDOWN.ANNUITY_START_DATE
+        autoPartial:
+          type: string
+          maxLength: 1
+          description: |-
+            If facility is auto-receipt it will decide if partial auto debit to a Deposit account can be done
+            Valid values are:
+            Y - Yes
+            N - No
+            <p>
+            CL_DRAWDOWN.AUTO_PARTIAL
+        bmIntRate:
+          type: number
+          description: |-
+            This refers to the Benchmark Interest Rate.
+            CL_DRAWDOWN.BM_INT_RATE
+        compoundDay:
+          type: number
+          description: |-
+            The optimal day when this event is triggered. The module will advance to the next working day should the calculated day
+            be a non-working day. ''Any Day'' frequencies set up in Kernel require an optimal day.
+            <p>
+            CL_DRAWDOWN.COMPOUND_DAY
+        compoundFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            The frequency at which the interest is calculated and compounded for the purpose of future interest calculations.
+            CL_DRAWDOWN.COMPOUND_FREQ
+        flatMax:
+          type: number
+          description: |-
+            The maximum rate applied on flat loans.  This should be greater than the Flat Min
+            CL_DRAWDOWN.FLAT_MAX
+        flatMin:
+          type: number
+          description: |-
+            The minimum rate applied on flat loans.  This should be less than the Flat Max
+            CL_DRAWDOWN.FLAT_MIN
+        intAdjNotPosted:
+          type: number
+          description: |-
+            This amount either positive or negative represents the value by which interest accrued is to be adjusted today and reflected in the nex interest invoice.
+            The interest and penalty interest accrual adjustment should be done on interest rate
+            <p>
+            CL_DRAWDOWN.INT_ADJ_NOT_POSTED
+        intCap:
+          type: string
+          maxLength: 1
+          description: |-
+            This mentions the amount of the interest to be capitalised. The capitalised interest Amount will be added to the Outstanding Principal Amount.
+            CL_DRAWDOWN.INT_CAPITALISED
+        intPenaltyBasis:
+          type: string
+          maxLength: 4
+          description: |-
+            This is the interest basis on which penalty on the interest due and if not paid is calculated.
+            CL_DRAWDOWN.INT_PENALTY_BASIS
+        intPenaltyBasisRate:
+          type: number
+          description: |-
+            This is the interest rate which will be used to calculate the penalty on the interest.
+            CL_DRAWDOWN.INT_PENALTY_BASIS_RATE
+        intRepayDay:
+          type: number
+          description: |-
+            The optimal day in the month for incrementing the next interest date.
+            CL_DRAWDOWN.INT_REPAY_DAY
+        intRepayFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            The frequency at which interest will be paid or capitalised.
+            CL_DRAWDOWN.INT_REPAY_FREQ
+        loanMsgGrp:
+          type: string
+          maxLength: 3
+          description: |-
+            The message group from which this facility will obtain messaging formats
+            CL_DRAWDOWN.LOAN_MSG_GRP
+        maturity:
+          type: string
+          format: date
+          description: |-
+            The final repayment date. This can be extended but cannot be greater than the facility Expiry date.
+            CL_DRAWDOWN.MATURITY
+        maxIntBasis:
+          type: string
+          maxLength: 4
+          description: |-
+            The basis for the maximum variable rate. This automatically displays the Max Int Basis Rate as defined in the previous screens.
+            Should not be the same with Min Int Basis.
+            CL_DRAWDOWN.MAX_INT_BASIS
+        maxIntBasisRate:
+          type: number
+          description: |-
+            The maximum variable rates permissible on drawdown. Max int basis rate plus max spread rate must be greater than the sum of min int basis rate and min spread rate.
+            CL_DRAWDOWN.MAX_INT_BASIS_RATE
+        maxSpreadRate:
+          type: number
+          description: |-
+            The maximum spread interest rates permissible on drawdown.  This should be greater than the Min Spread Rate.
+            CL_DRAWDOWN.MAX_SPREAD_RATE
+        minIntBasis:
+          type: string
+          maxLength: 4
+          description: |-
+            The basis for the minimum variable rate. This automatically displays the minimum interest basis rate as defined in the previous screens.
+            Should not be the same with min interest basis.
+            <p>
+            CL_DRAWDOWN.MIN_INT_BASIS
+        minIntBasisRate:
+          type: number
+          description: |-
+            The minimum variable rates permissible on drawdown. Min int basis rate plus max spread rate must be greater than the sum of min int basis rate and min spread rate.
+            <p>
+            CL_DRAWDOWN.MIN_INT_BASIS_RATE
+        minMaxDay:
+          type: number
+          description: |-
+            This is the day that is populated from the min_max_roll date field date during drawdown or facility creation.
+            CL_DRAWDOWN.MIN_MAX_DAY
+        minMaxRollDate:
+          type: string
+          format: date
+          description: |-
+            The current min max rollover date.
+            CL_DRAWDOWN.MIN_MAX_ROLL_DATE
+        minMaxRollFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            Captures how frequent  the Min and Max would rollover.
+            CL_DRAWDOWN.MIN_MAX_ROLL_FREQ
+        minSpreadRate:
+          type: number
+          description: |-
+            The minimum spread interest rates permissible on drawdown plus min spread rate.
+            CL_DRAWDOWN.MIN_SPREAD_RATE
+        narrative:
+          type: string
+          maxLength: 50
+          description: |-
+            Free format text to capture additional details
+            CL_DRAWDOWN.NARRATIVE
+        nextCompoundDate:
+          type: string
+          format: date
+          description: |-
+            This records the Next Interest Compound Date when interest will be calculated and compounded to allow for compound interest calculation.
+            CL_DRAWDOWN.NEXT_COMPOUND_DATE
+        nextIntRepDate:
+          type: string
+          format: date
+          description: |-
+            This records the Next interest repayment date of drawdown.
+            CL_DRAWDOWN.NEXT_INT_REP_DATE
+        odAdjNotPosted:
+          type: number
+          description: |-
+            This amount either positive or negative represents the value by which penalty interest accrued is to be adjusted today and reflected in the next penalty interest invoice.
+            The interest and penalty interest accrual adjustment should be done on interest rate change date
+            CL_DRAWDOWN.OD_ADJ_NOT_POSTED
+        priRepayType:
+          type: string
+          maxLength: 1
+          description: |-
+            The interval of principal repayments on this facility
+            Valid values are:
+            R - Regular
+            I - Irregular
+            B - Bullet
+            <p>
+            CL_DRAWDOWN.PRI_REPAY_TYPE
+        progDate:
+          type: string
+          format: date
+          description: |-
+            Progressivity Date
+            <p>
+            CL_DRAWDOWN.PROG_DATE
+        progDay:
+          type: number
+          description: |-
+            Progressivity Day
+            <p>
+            CL_DRAWDOWN.PROG_DAY
+        progFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            Progressivity Frequency
+            <p>
+            CL_DRAWDOWN.PROG_FREQ
+        progInd:
+          type: string
+          maxLength: 1
+          description: |-
+            Progressivity Indicator
+            <p>
+            CL_DRAWDOWN.PROG_IND
+        progRate:
+          type: number
+          description: |-
+            Progressivity Rate
+            <p>
+            CL_DRAWDOWN.PROG_RATE
+        progStartDt:
+          type: string
+          format: date
+          description: |-
+            Prog start date
+            <p>
+            CL_DRAWDOWN.PROG_START_DT
+        progStartInfo:
+          type: string
+          format: date
+          description: |-
+            Progressivity Start
+            <p>
+            CL_DRAWDOWN.PROG_START_INFO
+        provision:
+          type: number
+          description: |-
+            This specifies any Specific provision amount made against bad loans.
+            <p>
+            CL_DRAWDOWN.PROVISION
+        prPenaltySpread:
+          type: number
+          description: |-
+            This is the net spread rate that will be added to the interest basis rate for calculating the penalty rate charges
+            CL_DRAWDOWN.PR_PENALTY_SPREAD
+        rollDate:
+          type: string
+          format: date
+          description: |-
+            The next rollover date. If this date coincides with the drawdown maturity date, it need not be entered.
+            CL_DRAWDOWN.ROLL_DATE
+        rollDay:
+          type: number
+          description: |-
+            The optimal day in the month for incrementing. The day (in number) on which the rollover will occur.
+            CL_DRAWDOWN.ROLL_DAY
+        rollFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            The frequency at which the interest rate are charged during the rollover or  through manual rollover amendments
+            <p>
+            CL_DRAWDOWN.ROLL_FREQ
+      required:
+        - maturity
+    DrawdownCreateInfo:
+      type: object
+      description: Lehívás rögzítés.
+      properties:
+        drawdownInfo:
+          $ref: "#/components/schemas/DrawdownInfo"
+          description: "Létrehozáskor kötelező, lekérdezéskor nem kötelező"
+        altCummulatedIndexValue:
+          type: number
+          description: Alteration cumulated index value
+        altIndexCode:
+          type: string
+          maxLength: 6
+          description: Alteration index code
+        altIndexValue:
+          type: number
+          description: Alteration index value
+        altSeqNo:
+          type: number
+          description: Alteration sequence number
+        baseDays:
+          type: number
+          description: |-
+            Base days
+            CL_DRAWDOWN.BASE_DAYS
+        ccy:
+          type: string
+          maxLength: 3
+          description: |-
+            Drawdown Currency
+            CL_DRAWDOWN.CCY
+        ddAmt:
+          type: number
+          description: |-
+            The total amount of the drawdown or the amount availed including drawdown increases
+            CL_DRAWDOWN.DD_AMT
+        ddDate:
+          type: string
+          format: date
+          description: |-
+            The date when the corresponding drawdown was made.
+            CL_DRAWDOWN.DD_DATE
+        ddLoanXrate:
+          type: number
+          description: |-
+            The conversion rate between the drawdown currency and the currency in which the facility was created.
+            CL_DRAWDOWN.DD_LOAN_XRATE
+        fixedIntRate:
+          type: number
+          description: |-
+            If the user does not wish to assign an interest basis and a spread rate, the user may enter a specific rate.
+            CL_DRAWDOWN.FIXED_INT_RATE
+        hoRepCode:
+          type: number
+          description: Type of reporting captured from Fm_reporting for accounting
+            purposes. This item shows the current ho rep code of the loan to be transferred.
+        intBasis:
+          type: string
+          maxLength: 4
+          description: |-
+            This is used by the system to calculate the effective interest rate of the loan. This is applicable for loans with a floating rate.
+            Interest basis code. This will be verified against Basis table from Kernel.
+            CL_DRAWDOWN.INT_BASIS
+        intBasisRate:
+          type: number
+          description: |-
+            The minimum variable rates permissible on drawdown. Min int basis rate plus max spread rate must be greater than the sum of min int basis rate and min spread rate.
+            CL_DRAWDOWN.MIN_INT_BASIS_RATE
+        lender:
+          type: string
+          maxLength: 6
+          description: |-
+            The branch/unit that grants the loan or the managing bank if loan is a syndication.
+            CL_DRAWDOWN.LENDER
+        spreadBasis1:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 1
+            CL_DRAWDOWN_SPREAD_BASIS_1
+        spreadBasis2:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 2
+            CL_DRAWDOWN_SPREAD_BASIS_2
+        spreadBasis3:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 3
+            CL_DRAWDOWN_SPREAD_BASIS_3
+        spreadBasis4:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 4
+            CL_DRAWDOWN_SPREAD_BASIS_4
+        spreadBasis5:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 5
+            CL_DRAWDOWN_SPREAD_BASIS_5
+        spreadBasis6:
+          type: string
+          maxLength: 4
+          description: |-
+            Spread basis 6
+            CL_DRAWDOWN_SPREAD_BASIS_6
+        spreadBasisRate1:
+          type: number
+          description: |-
+            Spread basis rate 1
+            CL_DRAWDOWN_SPREAD_BASIS_RATE_1
+        spreadBasisRate2:
+          type: number
+          description: |-
+            Spread basis rate 2
+            CL_DRAWDOWN_SPREAD_BASIS_RATE_2
+        spreadBasisRate3:
+          type: number
+          description: |-
+            Spread basis rate 3
+            CL_DRAWDOWN_SPREAD_BASIS_RATE_3
+        spreadBasisRate4:
+          type: number
+          description: |-
+            Spread basis rate 4
+            CL_DRAWDOWN_SPREAD_BASIS_RATE_4
+        spreadBasisRate5:
+          type: number
+          description: |-
+            Spread basis rate 5
+            CL_DRAWDOWN_SPREAD_BASIS_RATE_5
+        spreadBasisRate6:
+          type: number
+          description: |-
+            Spread basis rate 6
+            CL_DRAWDOWN_SPREAD_BASIS_RATE_6
+        spreadRate7:
+          type: number
+          description: |-
+            Spread rate 7
+            CL_DRAWDOWN_SPREAD_RATE_7
+        spreadRate:
+          type: number
+          description: |-
+            Margin over interest basis rate. The effective interest will be sum of Interest basis rate and the spread rate.
+            The Spread rate can be negative to the extent that Effective interest is not negative.
+            <p>
+            CL_DRAWDOWN.SPREAD_RATE
+      required:
+        - baseDays
+        - ccy
+        - ddAmt
+        - ddDate
+        - ddLoanXrate
+        - lender
+    DrawdownSettlePayInfo:
+      type: object
+      description: Folyósítás részletek.
+      properties:
+        acct59:
+          type: string
+          maxLength: 35
+          description: |-
+            The Retail Deposit account number for the client. Beneficiary Client number
+            Verifies against Account Open/Maintenance in Nostro/Vostro module.
+            CL_SETTLE_PAY.ACCT_59
+        amtType:
+          type: string
+          maxLength: 2
+          description: |-
+            This is the valid amount type for which the risk is to be tracked. This is the Type of settlement amount.
+            Valid values:
+            PR - Principal Amount
+            OS - Penalty Interest at Loan Rate
+
+            CL_SETTLE_PAY.AMT_TYPE
+        branch:
+          type: string
+          maxLength: 3
+          description: |-
+            For retail payment, this is the branch where the account was opened
+            <p>
+            CL_SETTLE_PAY.BRANCH
+        client53:
+          type: string
+          maxLength: 6
+          description: |-
+            Sender correspondence to used for swift/telex payment
+
+            CL_SETTLE_PAY.CLIENT53
+        client54:
+          type: string
+          maxLength: 6
+          description: |-
+            Receivers correspondence to used for swift/telex payment. The institution receiving the funds sent by the sender correspondence on behalf of the beneficiary's bank.
+
+            CL_SETTLE_PAY.CLIENT54
+        client56:
+          type: string
+          maxLength: 6
+          description: |-
+            For swift/telex payment. The bank, which may be in the position of an intermediary, in this funds transfer transaction.
+
+            CL_SETTLE_PAY.CLIENT56
+        client57:
+          type: string
+          maxLength: 6
+          description: |-
+            Used by swift/telex /nostro payment.
+            The bank, with which the beneficiary may be having an account.
+
+            CL_SETTLE_PAY.CLIENT57
+        client58:
+          type: string
+          maxLength: 6
+          description: |-
+            Retail-The client who is supposed to receive the funds disbursed against the loan.
+
+            CL_SETTLE_PAY.CLIENT58
+        clXrate:
+          type: number
+          description: |-
+            Exchange rate between the drawdown currency and the settlement account currency. Individual FX rate set up by a user for conversion purpose.
+
+            CL_SETTLE_PAY.CL_XRATE
+        info72:
+          type: string
+          maxLength: 210
+          description: |-
+            This column is used by swift/telex/nostro/vostro/internal/retail payment
+            Some information about the settlement.
+
+            CL_SETTLE_PAY.INFO_72
+        name53:
+          type: string
+          maxLength: 140
+          description: |-
+            Sender''s correspondent client number, used for swift/telex payment
+
+            CL_SETTLE_PAY.NAME_53
+        name54:
+          type: string
+          maxLength: 140
+          description: |-
+            Receiver''s correspondent name/location, used for swift/telex payment
+
+            CL_SETTLE_PAY.NAME_54
+        name56:
+          type: string
+          maxLength: 140
+          description: |-
+            Major client contact address. To used for swift/telex/nostro/retail payment This is the intermediary name of the paying party.
+
+            CL_SETTLE_PAY.NAME_56
+        name57:
+          type: string
+          maxLength: 140
+          description: |-
+            The address of the bank with which the beneficiary may be having an account. Used by swift/telex/nostro payment.
+
+            CL_SETTLE_PAY.NAME_57
+        name58:
+          type: string
+          maxLength: 140
+          description: |-
+            The address of the client who is going to receive the disbursement
+
+            CL_SETTLE_PAY.NAME_58
+        nosVosNo:
+          type: number
+          description: |-
+            Our correspondent . The assigned nostro Vostro number of the GL Account of a client (Bank) in transaction currency. Priority usage sequence for nostros in buy currency
+
+            CL_SETTLE_PAY.NOS_VOS_NO
+        payAmt:
+          type: number
+          description: |-
+            The actual amount to be paid under the draw down. This amount is in drawdown currency.
+
+            CL_SETTLE_PAY.PAY_AMT
+        rbXrate:
+          type: number
+          description: |-
+            Exchange rate between the drawdown currency and the settlement account currency. Individual FX rate set up by a user for conversion purpose.
+
+            CL_SETTLE_PAY.RB_XRATE
+        settleAcctType:
+          type: string
+          maxLength: 1
+          description: |-
+            The type account to which this drawdown will be settled to. The account types available are :
+            N - Nostro
+            V - Vostro
+            I - Internal
+            R - Retail
+            <p>
+            CL_SETTLE_PAY.SETTLE_ACCT_TYPE
+        settleCcy:
+          type: string
+          maxLength: 3
+          description: |-
+            Currency of the settlement account. Internal accounts are available in any currency Retail / Nostro/Vostro accounts are validate for the currency of settlement
+            <p>
+            CL_SETTLE_PAY.SETTLE_CCY
+        settleMethod:
+          type: string
+          maxLength: 3
+          description: |-
+            The method of settlement, messaging generated. The messages available are those set up under CL static data '' message key'' among which are:
+            RCL - Retail Credit
+            INT - Internal Settlement
+            SWF - Swift
+            TEL - Telex
+            <p>
+            CL_SETTLE_PAY.SETTLE_METHOD
+        settleXrate:
+          type: number
+          description: |-
+            Exchange rate between the drawdown currency and the settlement account currency. Individual FX rate set up by a user for conversion purpose.
+
+            CL_SETTLE_PAY.SETTLE_XRATE
+      required:
+        - branch
+        - clXrate
+        - payAmt
+        - rbXrate
+        - settleAcctType
+        - settleCcy
+        - settleMethod
+        - settleXrate
+    DrawdownSettleRecInfo:
+      type: object
+      description: Folyósítási jutalék részletek.
+      properties:
+        acct59:
+          type: string
+          maxLength: 35
+          description: |-
+            The Retail Deposit account number for the client. Beneficiary Client number
+            Verifies against Account Open/Maintenance in Nostro/Vostro module.
+            CL_SETTLE_REC.ACCT_59
+        amtType:
+          type: string
+          maxLength: 2
+          description: |-
+            This is the valid amount type for which the risk is to be tracked. This is the Type of settlement amount.
+            Valid values:
+            PR - Principal Amount
+            OS - Penalty Interest at Loan Rate
+            <p>
+            CL_SETTLE_REC.AMT_TYPE
+        branch:
+          type: string
+          maxLength: 3
+          description: |-
+            For retail payment, this is the branch where the account was opened
+            <p>
+            CL_SETTLE_REC.BRANCH
+        client50:
+          type: string
+          maxLength: 6
+          description: |-
+            This is the client no of the Nostro account to be used for paying off the drawdown balances
+            CL_SETTLE_REC.CLIENT_50
+        client52:
+          type: string
+          maxLength: 6
+          description: |-
+            Used for swift/telex payment. The ordering customer. The client who will pay the amount to be settled.
+
+            CL_SETTLE_REC.CLIENT_52
+        client56:
+          type: string
+          maxLength: 6
+          description: |-
+            For swift/telex payment. The bank, which may be in the position of an intermediary, in this funds transfer transaction.
+
+            CL_SETTLE_REC.CLIENT_56
+        clXrate:
+          type: number
+          description: |-
+            Exchange rate between the drawdown currency and the settlement account currency. Individual FX rate set up by a user for conversion purpose.
+            CL_SETTLE_REC.CL_XRATE
+        info72:
+          type: string
+          maxLength: 210
+          description: |-
+            This column is used by swift/telex/nostro/vostro/internal/retail payment
+            Some information about the settlement.
+
+            CL_SETTLE_REC.INFO_72
+        name50:
+          type: string
+          maxLength: 140
+          description: |-
+            This is the ordering institution name. The same is used by the Swift/Telex to record receipt instruction.
+            CL_SETTLE_REC.NAME_50
+        name52:
+          type: string
+          maxLength: 140
+          description: |-
+            Sender correspondence address to used for swift/telex payment. To used for swift/telex/nostro/retail payment .
+            This is the ordering institution client name.
+
+            CL_SETTLE_REC.NAME_52
+        name56:
+          type: string
+          maxLength: 140
+          description: |-
+            Major client contact address. To used for swift/telex/nostro/retail payment This is the intermediary name of the paying party.
+
+            CL_SETTLE_REC.NAME_56
+        nosVosNo:
+          type: number
+          description: |-
+            Our correspondent . The assigned nostro Vostro number of the GL Account of a client (Bank) in transaction currency. Priority usage sequence for nostros in buy currency
+
+            CL_SETTLE_REC.NOS_VOS_NO
+        rbXrate:
+          type: number
+          description: |-
+            Exchange rate between the drawdown currency and the settlement account currency. Individual FX rate set up by a user for conversion purpose.
+
+            CL_SETTLE_REC.RB_XRATE
+        recAmt:
+          type: number
+          description: |-
+            This amount refers to the discounted interest for the drawdown entry created.
+
+            CL_SETTLE_REC.REC_AMT
+        settleAcctType:
+          type: string
+          maxLength: 1
+          description: |-
+            The type account to which this drawdown will be settled to. The account types available are :
+            N - Nostro
+            V - Vostro
+            I - Internal
+            R - Retail
+            <p>
+            CL_SETTLE_REC.SETTLE_ACCT_TYPE
+        settleCcy:
+          type: string
+          maxLength: 3
+          description: |-
+            Currency of the settlement account. Internal accounts are available in any currency Retail / Nostro/Vostro accounts are validate for the currency of settlement
+            <p>
+            CL_SETTLE_REC.SETTLE_CCY
+        settleMethod:
+          type: string
+          maxLength: 3
+          description: |-
+            The method of settlement, messaging generated. The messages available are those set up under CL static data '' message key'' among which are:
+            RCL - Retail Credit
+            INT - Internal Settlement
+            SWF - Swift
+            TEL - Telex
+            <p>
+            CL_SETTLE_REC.SETTLE_METHOD
+        settleXrate:
+          type: number
+          description: |-
+            Exchange rate between the drawdown currency and the settlement account currency. Individual FX rate set up by a user for conversion purpose.
+
+            CL_SETTLE_REC.SETTLE_XRATE
+      required:
+        - amtType
+        - branch
+        - clXrate
+        - rbXrate
+        - recAmt
+        - settleAcctType
+        - settleCcy
+        - settleMethod
+        - settleXrate
+    DrawdownSettlementInfo:
+      type: object
+      description: Folyósítás rögzítés.
+      properties:
+        drawdownSettlePayInfo:
+          $ref: "#/components/schemas/DrawdownSettlePayInfo"
+          description: Folyósítás részletek
+        drawdownSettleRecInfo:
+          $ref: "#/components/schemas/DrawdownSettleRecInfo"
+          description: Folyósítás jutalék részletek
+      required:
+        - drawdownSettlePayInfo
+    AutoSettlementInfo:
+      type: object
+      properties:
+        amtType:
+          type: string
+          maxLength: 2
+          description: |-
+            This is the valid amount type for which the risk is to be tracked. This is the Type of settlement amount.
+            Valid values:
+            PR - Principal Amount
+            OS - Penalty Interest at Loan Rate
+            CL_AUTO_SETTLE.AMT_TYPE
+        position:
+          type: integer
+        settleAcctType:
+          type: string
+          maxLength: 1
+          description: |-
+            The type account to which this drawdown will be settled to. The account types available:
+            N - Nostro
+            <p>
+            V- Vostro
+            I - Internal
+            R - Retail
+            <p>
+            CL_AUTO_SETTLE.SETTLE_ACCT_TYPE
+        settleMethod:
+          type: string
+          description: |-
+            The method of settlement, messaging generated. The messages available are those set up under CL static data '' message key'' among which are:
+            RCL - Retail Credit
+            INT - Internal
+            TEL - Telex
+            <p>
+            CL_AUTO_SETTLE.SETTLE_METHOD
+      required:
+        - position
+        - settleAcctType
+        - settleMethod
+    AutoSettlementDetail:
+      type: object
+      properties:
+        autoSettlementInfo:
+          $ref: "#/components/schemas/AutoSettlementInfo"
+          description: AutoSettlementInfo
+        acct59:
+          type: string
+          maxLength: 35
+          description: |-
+            The Retail Deposit account number for the client. Beneficiary Client number
+            CL_AUTO_SETTLE.ACCT_59
+        branch:
+          type: string
+          maxLength: 3
+          description: |-
+            This takes the branch of the account in which the drawdown will be paid off
+            CL_AUTO_SETTLE.BRANCH
+        client50:
+          type: string
+          maxLength: 6
+          description: |-
+            This is the client no of the Nostro account to be used for paying off the drawdown balances
+            CL_AUTO_SETTLE.CLIENT_50
+        client52:
+          type: string
+          maxLength: 6
+          description: |-
+            Used for swift/telex payment. The ordering customer. The client who will pay the amount to be settled.
+            CL_AUTO_SETTLE.CLIENT_52
+        client56:
+          type: string
+          maxLength: 6
+          description: |-
+            For retail payment, this is the owener of the account to be used for paying off the balances of the drawdown.
+            CL_AUTO_SETTLE.CLIENT_56
+        info72:
+          type: string
+          maxLength: 210
+          description: |-
+            This column is used by swift/telex/nostro/vostro/internal/retail payment
+            Some information about the settlement.
+            CL_AUTO_SETTLE.INFO_72
+        name50:
+          type: string
+          maxLength: 140
+          description: |-
+            This is the ordering institution name. The same is used by the Swift/Telex to record receipt instruction.
+            CL_AUTO_SETTLE.NAME_50
+        name52:
+          type: string
+          maxLength: 140
+          description: |-
+            Sender correspondence address to used for swift/telex payment. To used for swift/telex/Nostro/retail payment . This is the ordering institution client name.
+            CL_AUTO_SETTLE.NAME_52
+        name56:
+          type: string
+          maxLength: 140
+          description: |-
+            Major client contact address. To used for swift/telex/Nostro/retail payment This is the intermediary name of the paying party.
+            CL_AUTO_SETTLE.NAME_56
+        nosVosNo:
+          type: number
+          description: |-
+            Our correspondent . The assigned Nostro Vostro number of the GL Account of a client (Bank) in transaction currency. Priority usage sequence for nostros in buy currency
+            CL_AUTO_SETTLE.NOS_VOS_NO
+        rateType:
+          type: string
+          maxLength: 3
+          description: |-
+            This holds the various rate types that are applicable to the currencies for the settlement account specified during the settlement.
+            CL_AUTO_SETTLE.RATE_TYPE
+        settleCcy:
+          type: string
+          maxLength: 3
+          description: |-
+            Currency of the settlement account. Internal accounts are available in any currency Retail / Nostro/Vostro accounts are validate for the currency of settlement
+            CL_AUTO_SETTLE.SETTLE_CCY
+      required:
+        - autoSettlementInfo
+        - acct59
+        - branch
+        - client56
+        - settleCcy
+    RolloverInfo:
+      type: object
+      description: Kamatváltozás előjegyzés.
+      properties:
+        loanNo:
+          type: string
+          minLength: 1
+        borrower:
+          type: string
+        ddNo:
+          type: integer
+        ddCcy:
+          type: string
+        lender:
+          type: string
+        irmYn:
+          type: string
+          maxLength: 1
+          description: |-
+            Indicates if the IRM is due to client Request.
+            CL_ROLLOVER.IRM_YN
+        irmDate:
+          type: string
+          format: date-time
+          description: |-
+            This stores the rundate and only if the IRM_YN is Y else Null.
+            CL_ROLLOVER.IRM_DATE
+        rollAmount:
+          type: number
+        intBasisYn:
+          type: string
+          maxLength: 1
+          description: |-
+            This indicates if the interest basis is applicable on this loan or not.
+            Valid values are Y- Applicable and N- Not Applicable
+            CL_ROLLOVER.INT_BASIS_YN
+        spreadYn:
+          type: string
+          maxLength: 1
+          description: |-
+            This is an indicator if the next spread rates are applicable or not to this loan.
+            CL_ROLLOVER.SPREAD_YN
+        fixedIntYn:
+          type: string
+          maxLength: 1
+          description: |-
+            This is an indicator if the Fixed Interest Rates has to be used for the rollover instead of the Interest Basis Rate.
+            CL_ROLLOVER.FIXED_INT_YN
+        kernelYn:
+          type: string
+          maxLength: 1
+          description: |-
+            This indicates if default interest basis rates defined in the Kernel are to be applied for the rollover. If Y then it takes these rates for calculation.
+            CL_ROLLOVER.KERNEL_YN
+        rollDate:
+          type: string
+          format: date-time
+        rollFreq:
+          type: string
+        rollDay:
+          type: number
+        intBasis:
+          type: string
+        intBasisRate:
+          type: number
+        intBasisDesc:
+          type: string
+        spreadRate:
+          type: number
+        spreadBasis1:
+          type: string
+        spreadBasisRate1:
+          type: number
+        spreadBasis2:
+          type: string
+        spreadBasisRate2:
+          type: number
+        spreadBasis3:
+          type: string
+        spreadBasisRate3:
+          type: number
+        spreadBasis4:
+          type: string
+        spreadBasisRate4:
+          type: number
+        spreadBasis5:
+          type: string
+        spreadBasisRate5:
+          type: number
+        spreadBasis6:
+          type: string
+        spreadBasisRate6:
+          type: number
+        spreadRate7:
+          type: number
+        effectiveSpreadRate:
+          type: number
+        fixedIntRate:
+          type: number
+        intRate:
+          type: number
+        nextRollDate:
+          type: string
+          format: date
+          description: |-
+            The next rollover date. If this date coincides with the drawdown maturity date, it need not be entered.
+            CL_ROLLOVER.NEXT_ROLL_DATE
+        nextRollFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            The frequency at which the next rollover date will be incremented
+            CL_ROLLOVER.NEXT_ROLL_FREQ
+        nextRollDay:
+          type: number
+          description: |-
+            The optimal day when this event is triggered. The module will advance to the next working day should the calculated day be a non-working day.
+            ''Any Day'' frequencies set up in Kernel require an optimal day.
+
+            CL_ROLLOVER.NEXT_ROLL_DAY
+        nextIntBasis:
+          type: string
+          maxLength: 4
+          description: |-
+            The interest basis applicable for the next interest period. Must have valid interest basis rate for drawdown currency
+            CL_ROLLOVER.NEXT_INT_BASIS
+        nextBasisRate:
+          type: number
+          description: |-
+            This is the rate that will be applied for the interest basis for the next rollover period.
+            CL_ROLLOVER.NEXT_BASIS_RATE
+        nextIntBasisDesc:
+          type: string
+        nextSpreadRate:
+          type: number
+          description: |-
+            This is the margin over the interest basis rate to get the effective interest rate applicable for the next period
+            CL_ROLLOVER.NEXT_SPREAD_RATE
+        nextSpreadBasis1:
+          type: string
+          maxLength: 4
+          description: |-
+            Next spread basis 1
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_1
+        nextSpreadBasisRate1:
+          type: number
+          description: |-
+            Next spread basis rate 1
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_RATE_1
+        nextSpreadBasis2:
+          type: string
+          maxLength: 4
+          description: |-
+            Next spread basis 2
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_2
+        nextSpreadBasisRate2:
+          type: number
+          description: |-
+            Next spread basis rate 2
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_RATE_2
+        nextSpreadBasis3:
+          type: string
+          maxLength: 4
+          description: |-
+            Next spread basis 3
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_3
+        nextSpreadBasisRate3:
+          type: number
+          description: |-
+            Next spread basis rate 3
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_RATE_3
+        nextSpreadBasis4:
+          type: string
+          maxLength: 4
+          description: |-
+            Next spread basis 4
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_4
+        nextSpreadBasisRate4:
+          type: number
+          description: |-
+            Next spread basis rate 4
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_RATE_4
+        nextSpreadBasis5:
+          type: string
+          maxLength: 4
+          description: |-
+            Next spread basis 5
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_5
+        nextSpreadBasisRate5:
+          type: number
+          description: |-
+            Next spread basis rate 5
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_RATE_5
+        nextSpreadBasis6:
+          type: string
+          maxLength: 4
+          description: |-
+            Next spread basis 6
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_6
+        nextSpreadBasisRate6:
+          type: number
+          description: |-
+            Next spread basis rate 6
+            CL_ROLLOVER.NEXT_SPREAD_BASIS_RATE_6
+        nextSpreadRate7:
+          type: number
+          description: |-
+            Next spread rate 7
+            CL_ROLLOVER.NEXT_SPREAD_RATE_7
+        nextEffectiveSpreadRate:
+          type: number
+        nextFixedIntRate:
+          type: number
+          description: |-
+            This refers to the interest rate to be applied for the next rollover period if the drawdown is to be on the fixed rate basis instead of the interest basis rate.
+            CL_ROLLOVER.NEXT_FIXED_INT_RATE
+        nextIntRate:
+          type: number
+        version:
+          type: string
+      required:
+        - loanNo
+        - ddNo
+    RepayCreateInfo:
+      type: object
+      description: Törlesztési ütemezés rögzítés.
+      properties:
+        position:
+          type: integer
+          description: Position Identification In Collection
+        priRepayFreq:
+          type: string
+          maxLength: 2
+          description: |-
+            Principal Repayment Type
+            • CL_REPAY.PRI_REPAY_FREQ
+        repayDate:
+          type: string
+          format: date
+          description: |-
+            Repayment Date
+            • CL_REPAY.REPAY_DATE
+        priRepayDay:
+          type: integer
+          description: |-
+            Principal Repayment Day
+            • CL_REPAY.PRI_REPAY_DAY
+        endDate:
+          type: string
+          format: date
+          description: |-
+            Principal Repay End Date
+            • CL_REPAY.END_DATE
+        ddAllocation:
+          type: number
+          description: |-
+            Repay Amount
+            • CL_REPAY.DD_ALLOCATION
+        repayCcy:
+          type: string
+          maxLength: 3
+          description: |-
+            Repay Currency
+            • CL_REPAY.REPAY_CCY
+      required:
+        - position
+        - repayDate
+        - ddAllocation
+        - repayCcy
+
+    CreateLoan:
+      type: object
+      description: Hitelnyitás és/vagy -folyósítás megbízás.
+      properties:
+        transactionId:
+          type: string
+          maxLength: 100
+          description: Megbízás egyedi azonosítója.
+        pendingLoanNo:
+          type: string
+          maxLength: 10
+          description: Függő kötelezettség azonosítója (csak jelzáloghitel esetén)
+        effectDate:
+          type: string
+          format: date
+          description: Értéknap
+        loanCreateInfo:
+          $ref: "#/components/schemas/LoanCreateInfo"
+          description: Hitel rögzítés.
+        customerAccountInfos:
+          type: array
+          items:
+            $ref: "#/components/schemas/CustomerAccountInfo"
+          description: Másodlagos törlesztési számlák.
+        loanRemarkInfos:
+          type: array
+          items:
+            $ref: "#/components/schemas/LoanRemarkInfo"
+          description: LoanRemarks
+        loanDocInfos:
+          type: array
+          items:
+            $ref: "#/components/schemas/LoanDocInfo"
+          description: LoanDocs
+        lenderInfos:
+          type: array
+          items:
+            $ref: "#/components/schemas/LenderInfo"
+          description: Lenders
+        feeCreateInfos:
+          type: array
+          items:
+            $ref: "#/components/schemas/FeeCreateInfo"
+          description: Díj rögzítések.
+        drawdownCreateInfo:
+          $ref: "#/components/schemas/DrawdownCreateInfo"
+          description: Lehívás rögzítés.
+        drawdownSettlementInfo:
+          $ref: "#/components/schemas/DrawdownSettlementInfo"
+          description: Folyósítás rögzítés.
+        autoSettlementDetails:
+          type: array
+          items:
+            $ref: "#/components/schemas/AutoSettlementDetail"
+          description: Automatikus törlesztések.
+        rolloverInfo:
+          $ref: "#/components/schemas/RolloverInfo"
+          description: Kamatváltozás előjegyzés.
+        afterDdFeeCreateInfos:
+          type: array
+          items:
+            $ref: "#/components/schemas/FeeCreateInfo"
+          description: Díjak rögzítése lehívás után.
+        repayCreateInfos:
+          type: array
+          items:
+            $ref: "#/components/schemas/RepayCreateInfo"
+          description: Törlesztési ütemezések rögzítése.
+      required:
+        - transactionId
+        - effectDate
+        - loanCreateInfo
+
+    TransactionResult:
+      type: string
+      description: Megbízás eredmény.
+      enum:
+        - COMPLETED
+        - REJECTED
+        - INCONSISTENT_DUPLICATE
+
+    CreateLoanStatus:
+      type: object
+      description: Hitelnyitás és/vagy -folyósítás megbízás állapota.
+      properties:
+        transactionId:
+          type: string
+          maxLength: 100
+          description: Megbízás egyedi azonosítója.
+        loanNo:
+          type: string
+          maxLength: 10
+          description: Létrejött hitel azonosítója
+        ddNo:
+          type: integer
+          description: Létrejött lehívás azonosítója
+        feeNos:
+          type: array
+          items:
+            type: integer
+          description: Létrejött díjak azonosítója (a request-ben megadott sorrendben)
+        errorInfo:
+          $ref: "./ebh-async-commons.yaml#/components/schemas/ServiceFault"
+          description: Hiba esetén a hibakód és leírás.
+        transactionResult:
+          $ref: "#/components/schemas/TransactionResult"
+          description: Megbízás állapota.
+      required:
+        - transactionId
+        - transactionResult
+    PostCreateLoanResponse:
+      type: object
+      description: Kérés objektum.
+      properties:
+        createLoanStatus:
+          $ref: "#/components/schemas/CreateLoanStatus"
+          description: Hitelnyitás és/vagy -folyósítás megbízás állapota.
+      required:
+        - createLoanStatus
