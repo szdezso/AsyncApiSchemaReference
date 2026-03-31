@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: SLLOAN PostCreateLoan V2 Models (*)
+  title: SLLOAN PostCreateLoan V2 Models
   version: 2.0.0
 paths: {}
 components:
@@ -1901,7 +1901,7 @@ components:
           description: Folyósítás jutalék részletek
       required:
         - drawdownSettlePayInfo
-    AutoSettlementInfo2:
+    AutoSettlementInfo:
       type: object
       properties:
         amtType:
