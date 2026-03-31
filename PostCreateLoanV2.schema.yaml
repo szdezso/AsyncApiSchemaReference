@@ -1901,7 +1901,7 @@ components:
           description: Folyósítás jutalék részletek
       required:
         - drawdownSettlePayInfo
-    AutoSettlementInfo:
+    AutoSettlementInfo2:
       type: object
       properties:
         amtType:
